@@ -1,0 +1,24 @@
+{
+  "name": "nicomsoft-ocr-electron",
+  "version": "1.0.0",
+  "description": "This is electron package for nicomsoft ocr sdk.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/govi2010/nicomsoft-ocr-electron.git"
+  },
+  "keywords": [
+    "nicomsoft",
+    "ocr",
+    "windows"
+  ],
+  "author": "govinda alwani",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/govi2010/nicomsoft-ocr-electron/issues"
+  },
+  "homepage": "https://github.com/govi2010/nicomsoft-ocr-electron#readme"
+}
