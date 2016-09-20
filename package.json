@@ -1,0 +1,43 @@
+{
+  "name": "nicomsoft-ocr-electron",
+  "version": "1.0.0",
+  "description": "This is electron package for nicomsoft ocr sdk.",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "files": [
+    "lib/"
+  ],
+  "scripts": {
+    "test": "mocha --opts tests/mocha.opts tests/**/*-test.ts",
+    "build": "rm -rf lib && tsc -p .",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/govi2010/nicomsoft-ocr-electron.git"
+  },
+  "keywords": [
+    "nicomsoft",
+    "ocr",
+    "windows"
+  ],
+  "author": "govinda alwani",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/govi2010/nicomsoft-ocr-electron/issues"
+  },
+  "homepage": "https://github.com/govi2010/nicomsoft-ocr-electron#readme",
+  "dependencies": {
+    "electron-edge": "^6.5.1",
+    "electron-rebuild": "^1.2.1"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.0.2",
+    "mocha-clean": "^1.0.0",
+    "ts-node": "^1.3.0",
+    "typescript": "^1.8.10",
+    "typings": "^1.3.3"
+  }
+}
