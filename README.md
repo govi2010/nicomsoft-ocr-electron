@@ -1,1 +1,0 @@
-# nicomsoft-ocr-electron
