@@ -29,8 +29,7 @@
   "dependencies": {
     "babel-runtime": "^5.8.20",
     "npm": "^3.5.3",
-    "electron-edge": "^6.5.1",
-    "electron-rebuild": "^1.2.1"
+    "electron-edge": "^6.5.1"
   },
   "devDependencies": {
     "babel": "^5.8.23",
