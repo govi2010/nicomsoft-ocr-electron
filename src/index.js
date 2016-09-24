@@ -66,14 +66,13 @@ module.exports = {
     AsianModuleLanguage: {},
     Configturation: {},
     loadingUrl: '',
-
-    init: function (byte64, inputMainModuleLanguage, inputAsianModuleLanguage, inputConfigturation, loadingUrl,key) {
+    finalKey: '',
+    init: function (byte64, inputMainModuleLanguage, inputAsianModuleLanguage, inputConfigturation, loadingUrl, key) {
 
         this.error = [];
         this.byte64 = byte64;
         this.MainModuleLanguage = MainModuleLanguage;
-
-
+        this.finalKey = key;
         this.AsianModuleLanguage = AsianModuleLanguage;
         this.Configturation = Configturation;
         this.loadingUrl = loadingUrl;
@@ -129,7 +128,7 @@ module.exports = {
 
 
     },
-    
+
     performOcr(callback) {
         var arrayBuffer;
         var fileReader = new FileReader();
@@ -137,9 +136,9 @@ module.exports = {
             arrayBuffer = e.target.result;
             var byte64new = new Buffer(arrayBuffer);
 
-            var csFilePath = __dirname+"/ocr.cs";
+            var csFilePath = __dirname + "/ocr.cs";
 
-            var str=fs.readFileSync(csFilePath,"utf8").replace("#LIBNAME#","D:\\desktopCapture\\Bin_64\\NSOCR.dll");
+            var str = fs.readFileSync(csFilePath, "utf8").replace("#LIBNAME#", "D:\\desktopCapture\\Bin_64\\NSOCR.dll");
 
             var getXml = edge.func({
                 source: str,
@@ -147,7 +146,7 @@ module.exports = {
             });
 
 
-            var passedData =  Object.assign({ byte64: byte64new,path:this.loadingUrl}, this.MainModuleLanguage,this.AsianModuleLanguage, this.Configturation );
+            var passedData = Object.assign({ byte64: byte64new, path: this.loadingUrl, finalKey: this.finalKey }, this.MainModuleLanguage, this.AsianModuleLanguage, this.Configturation);
             getXml(passedData, (error, result) => {
                 if (error) {
                     throw error

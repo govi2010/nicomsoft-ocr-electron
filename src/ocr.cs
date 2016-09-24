@@ -27,7 +27,7 @@ public class Startup
         //if you get "BadImageFormatException" error here: find and check "LIBNAME" constant in "NSOCR.cs"
         //  Console.WriteLine(" [ NSOCR version: " + val + " ] ");
 
-        TNSOCR.Engine_SetLicenseKey(""); //required for licensed version only
+        TNSOCR.Engine_SetLicenseKey(((string)input.finalKey)); //required for licensed version only
 
         //init engine and create ocr-related objects
         TNSOCR.Engine_Initialize();
