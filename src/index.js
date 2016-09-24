@@ -66,7 +66,8 @@ module.exports = {
     AsianModuleLanguage: {},
     Configturation: {},
     loadingUrl: '',
-    init: function (byte64, inputMainModuleLanguage, inputAsianModuleLanguage, inputConfigturation, loadingUrl) {
+
+    init: function (byte64, inputMainModuleLanguage, inputAsianModuleLanguage, inputConfigturation, loadingUrl,key) {
 
         this.error = [];
         this.byte64 = byte64;
@@ -128,6 +129,7 @@ module.exports = {
 
 
     },
+    
     performOcr(callback) {
         var arrayBuffer;
         var fileReader = new FileReader();
