@@ -5,31 +5,15 @@
 
 ```
 git clone https://github.com/govi2010/nicomsoft-ocr-electron.git
-cd typescript-module-boilerplate
+cd nicomsoft-ocr-electron
 npm install
-typings install
 ```
 
-## Testing
-
-Uses Mocha, just do it!
-
-```
-npm test
-```
 
 ## Building
 
-Use TypeScript straight up
-
 ```
-rm -rf lib && tsc -p .
-```
-
-or a convenience shortcut
-
-```
-npm run build
+npm run compile
 ```
 
 ## License
