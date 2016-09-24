@@ -75,7 +75,21 @@ module.exports = {
         this.finalKey = key;
         this.AsianModuleLanguage = AsianModuleLanguage;
         this.Configturation = Configturation;
-        this.loadingUrl = loadingUrl;
+        if (process.arch === "x64") {
+            this.loadingUrl = loadingUrl + "\\Bin_64\\NSOCR.dll";
+            if (!fs.existsSync(this.loadingUrl)) {
+                this.error.push(this.loadingUrl + " : Dll file doesn't exists.");
+                return false;
+            }
+        }
+        else {
+            this.loadingUrl = loadingUrl + "\\Bin\\NSOCR.dll";
+            if (!fs.existsSync(this.loadingUrl)) {
+                this.error.push(this.loadingUrl + " : Dll file doesn't exists.");
+                return false;
+            }
+        }
+
 
         for (var obj in inputMainModuleLanguage) {
             if (this.MainModuleLanguage.hasOwnProperty(obj)) {
@@ -128,8 +142,12 @@ module.exports = {
 
 
     },
+    GetError: function () {
+        return this.error;
+    },
 
     performOcr(callback) {
+        callback(process.arch);
         var arrayBuffer;
         var fileReader = new FileReader();
         fileReader.onload = (e) => {
@@ -138,7 +156,20 @@ module.exports = {
 
             var csFilePath = __dirname + "/ocr.cs";
 
-            var str = fs.readFileSync(csFilePath, "utf8").replace("#LIBNAME#", "D:\\desktopCapture\\Bin_64\\NSOCR.dll");
+
+            var str = "";
+            if (fs.existsSync(csFilePath)) {
+                if (fs.existsSync(this.loadingUrl)) {
+                    str = fs.readFileSync(csFilePath, "utf8").replace("#LIBNAME#", this.loadingUrl);
+                } else {
+                    callback(this.loadingUrl + " : Dll file doesn't exists.");
+                    return;
+                }
+            } else {
+                callback(csFilePath + " : Cs File node found. ");
+                return;
+            }
+
 
             var getXml = edge.func({
                 source: str,
@@ -155,7 +186,6 @@ module.exports = {
                 var x2js = new X2JS();
                 debugger;
                 var jsonObj = x2js.xml2js(result);
-                console.log(jsonObj);
                 callback(JSON.stringify(jsonObj));
             });
 
