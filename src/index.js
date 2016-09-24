@@ -67,7 +67,7 @@ module.exports = {
     Configturation: {},
     loadingUrl: '',
     finalKey: '',
-    init: function (byte64, inputMainModuleLanguage, inputAsianModuleLanguage, inputConfigturation, loadingUrl, key) {
+    init: function (byte64, inputMainModuleLanguage, inputConfigturation, loadingUrl, key) {
 
         this.error = [];
         this.byte64 = byte64;
@@ -97,9 +97,9 @@ module.exports = {
             }
         }
 
-        for (var obj in inputAsianModuleLanguage) {
+        for (var obj in inputMainModuleLanguage) {
             if (this.AsianModuleLanguage.hasOwnProperty(obj)) {
-                this.AsianModuleLanguage[obj] = inputAsianModuleLanguage[obj];
+                this.AsianModuleLanguage[obj] = inputMainModuleLanguage[obj];
             }
         }
 
@@ -156,7 +156,6 @@ module.exports = {
 
             var csFilePath = __dirname + "/ocr.cs";
 
-
             var str = "";
             if (fs.existsSync(csFilePath)) {
                 if (fs.existsSync(this.loadingUrl)) {
@@ -170,12 +169,10 @@ module.exports = {
                 return;
             }
 
-
             var getXml = edge.func({
                 source: str,
                 references: ['System.Drawing.dll']
             });
-
 
             var passedData = Object.assign({ byte64: byte64new, path: this.loadingUrl, finalKey: this.finalKey }, this.MainModuleLanguage, this.AsianModuleLanguage, this.Configturation);
             getXml(passedData, (error, result) => {
@@ -188,7 +185,6 @@ module.exports = {
                 var jsonObj = x2js.xml2js(result);
                 callback(JSON.stringify(jsonObj));
             });
-
 
         }
         fileReader.readAsArrayBuffer(this.byte64);
