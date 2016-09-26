@@ -28,10 +28,6 @@
   },
   "devDependencies": {
     "babel-runtime": "^5.8.20",
-    "babel": "^5.8.23",
-    "chai": "^3.4.1",
-    "chai-as-promised": "^5.2.0",
-    "electron-prebuilt": "^0.36.3",
-    "mocha": "^2.3.4"
+    "babel": "^5.8.23"
   }
 }
