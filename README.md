@@ -7,13 +7,12 @@
 
 ## API
 
-INIT method: `init: function (byte64, inputMainModuleLanguage, inputConfigturation, loadingUrl, key)`
+**INIT method** : `init: function (byte64, inputMainModuleLanguage, inputConfigturation, loadingUrl, key)`
 Init method initialize OCR sdk for Application  inputs are 
 
 `byte64`: blob object of image
 
 `inputMainModuleLanguage`: language json.
-
 ```
 {
     "Bulgarian": false,
@@ -80,6 +79,19 @@ Init method initialize OCR sdk for Application  inputs are
 `C:\Program Files (x86)\Nicomsoft OCR` here is sample.
 
 `key`: key for Niconsoft OCR key.
+
+
+Init method returns true or false. 
+
+true= ocr sdk is ready to perform.
+false= there is some error in initialization.
+
+
+**GetError method** : If you get false in init method. GetError method will give you error messages and string array.
+`GetError();`
+** performOcr Methode** : ' performOcr(callback)'
+this performs OCR with configuration provided in init method and returen data in `callback` function as json.
+
 
 ## License
 
