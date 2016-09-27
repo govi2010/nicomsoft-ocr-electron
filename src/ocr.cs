@@ -490,8 +490,8 @@ public class TNSOCR
     public const int IMG_FORMAT_TIFF = 18;
     public const int IMG_FORMAT_FLAG_BINARIZED = 0x100;
 
-    //public const string LIBNAME = @"#LIBNAME#";
-    public const string LIBNAME = @"D:\desktopCapture\Bin_64\NSOCR.dll";
+    public const string LIBNAME = @"#LIBNAME#";
+    //public const string LIBNAME = @"D:\desktopCapture\Bin_64\NSOCR.dll";
     //IMPORTANT: CORRECT PATH TO X64 NSOCR.DLL
 
 
