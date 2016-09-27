@@ -25,10 +25,11 @@
   "homepage": "https://github.com/govi2010/nicomsoft-ocr-electron#readme",
   "dependencies": {
     "electron-edge": "^6.5.1",
-    "x2js": "^3.0.0"
+    "x2js": "^3.0.0",
+    "babel-runtime": "^5.8.20"
   },
   "devDependencies": {
-    "babel-runtime": "^5.8.20",
+    
     "babel": "^5.8.23"
   }
 }
